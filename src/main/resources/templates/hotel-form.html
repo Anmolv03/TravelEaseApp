@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Create New Hotel</title>
+
+
+
+  <!-- Bootstrap 5 -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+  <!-- Animate.css for animation -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+
+  <style>
+
+    /* Dark Theme */
+
+    body {
+
+      background-color: #1a1a1a;
+
+      color: #f8f9fa;
+
+    }
+
+
+
+    .navbar, .footer {
+
+      background-color: #222;
+
+    }
+
+
+
+    /* Form Styling */
+
+    .form-control {
+
+      background-color: #2c2c2c;
+
+      color: #f8f9fa;
+
+      border: 1px solid #444;
+
+    }
+
+
+
+    .form-control:focus {
+
+      background-color: #2c2c2c;
+
+      color: #f8f9fa;
+
+      border-color: #007bff;
+
+    }
+
+
+
+    .form-label {
+
+      color: #f8f9fa;
+
+    }
+
+
+
+    .card {
+
+      background-color: #2c2c2c;
+
+      color: #f8f9fa;
+
+      border: none;
+
+      padding: 20px;
+
+    }
+
+
+
+    /* Navbar styling */
+
+    .navbar {
+
+      background: linear-gradient(45deg, #343a40, #222);
+
+    }
+
+
+
+    .navbar .navbar-nav {
+
+      margin-left: auto;
+
+    }
+
+
+
+    .navbar .nav-item .nav-link {
+
+      color: white;
+
+    }
+
+
+
+    .navbar .nav-item .nav-link:hover {
+
+      color: #f8f9fa;
+
+    }
+
+
+
+    /* Footer */
+
+    .footer {
+
+      background-color: #222;
+
+      padding: 20px;
+
+      text-align: center;
+
+      color: #f8f9fa;
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="#">TravelEase</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item"><a class="nav-link" th:href="@{/hotels/hotel-list}">Hotels</a></li>
+
+          <li class="nav-item"><a class="nav-link" th:href="@{/trips/trip-list}">Trips</a></li>
+          
+          <li class="nav-item"><a class="nav-link" th:href="@{/bookings/mybooking}">My Bookings</a></li>
+
+          <li class="nav-item"><a class="btn btn-success btn-outline-light ml-3" href="/users/home">Back to Home</a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- Create Hotel Form -->
+
+  <div class="container mt-5">
+
+    <h2 class="animate__animated animate__fadeIn">Create New Hotel</h2>
+
+
+
+    <div class="card animate__animated animate__fadeIn">
+
+      <form th:action="@{/hotels/admin/create}" method="post" th:object="${hotel}">
+
+        <div class="mb-3">
+
+          <label for="name" class="form-label">Hotel Name</label>
+
+          <input type="text" id="name" class="form-control" th:field="*{name}" name="name" required>
+
+        </div>
+
+
+
+        <div class="mb-3">
+
+          <label for="address" class="form-label">Hotel Address</label>
+
+          <input type="text" id="address" class="form-control" th:field="*{address}" name="address" required>
+
+        </div>
+
+
+
+        <div class="mb-3">
+
+          <label for="pricePerNight" class="form-label">Price Per Night</label>
+
+          <input type="number" id="pricePerNight" class="form-control" th:field="*{pricePerNight}" name="pricePerNight" required>
+
+        </div>
+
+
+
+        <div class="mb-3">
+
+          <label for="totalRooms" class="form-label">Total Rooms</label>
+
+          <input type="number" id="totalRooms" class="form-control" th:field="*{totalRooms}" name="totalRooms" required>
+
+        </div>
+
+
+
+        <div class="mb-3">
+
+          <label for="bookedRooms" class="form-label">Booked Rooms</label>
+
+          <input type="number" id="bookedRooms" class="form-control" th:field="*{bookedRooms}" name="bookedRooms" required>
+
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Create Hotel</button>
+
+        
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Footer Section -->
+
+  <div class="footer mt-5">
+
+    <p>© 2025 TravelEase. All rights reserved.</p>
+
+  </div>
+
+
+
+  <!-- Scripts -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+
+</html>

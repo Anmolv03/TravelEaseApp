@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | TravelEase</title>
+ 
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+ 
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+    <!-- Custom CSS -->
+    <style>
+        /* Background */
+        body {
+            background: linear-gradient(45deg, #000000, #1a1a1a);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+ 
+        /* Register Container */
+        .register-container {
+            width: 450px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+ 
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+ 
+        /* Input Fields */
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #0ef;
+        }
+ 
+        .form-control::placeholder {
+            color: rgba(0, 255, 255, 0.5);
+        }
+ 
+        /* Buttons */
+        .btn-primary {
+            background: #0ef;
+            border: none;
+            transition: 0.3s ease-in-out;
+        }
+ 
+        .btn-primary:hover {
+            background: #00d2ff;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #0ef;
+        }
+ 
+        /* Text Styles */
+        .text-glow {
+            color: #0ef;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+ 
+        /* Alert Messages */
+        .alert {
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+    <div class="register-container text-center">
+        <h2 class="text-glow mb-3">Create Your Account</h2>
+ 
+        <!-- Success & Error Messages -->
+        <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}"></span>
+        </div>
+ 
+        <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle"></i> <span th:text="${error}"></span>
+        </div>
+ 
+        <!-- Registration Form -->
+        <form th:action="@{/users/register}" method="post">
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+    
+            <div class="form-group">
+                <select name="role" class="form-control">
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+ 
+        <p class="text-glow mt-3">Already have an account? <a href="/users/login" class="text-warning">Login</a></p>
+    </div>
+ 
+    <!-- Bootstrap 4 JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+ 
+</body>
+ 
+</html>
+ 
+ 

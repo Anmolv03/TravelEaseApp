@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TravelEase - Home</title>
+
+
+
+  <!-- Bootstrap 4 -->
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+  <!-- Animate.css -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+
+  <style>
+
+    /* Dark Mode Theme */
+
+    body {
+
+      background-color: #1a1a1a;
+
+      color: #f8f9fa;
+
+    }
+
+    .navbar, .footer {
+
+      background-color: #222;
+
+    }
+
+    .card {
+
+      background-color: #2c2c2c;
+
+      border: 1px solid #444;
+
+      height: 100%; /* Ensuring uniform card height */
+
+    }
+
+    .navbar {
+
+      background: linear-gradient(45deg, #343a40, #222);
+
+    }
+
+    .hero {
+
+      background: url('https://source.unsplash.com/1600x900/?travel') center/cover no-repeat;
+
+      height: 400px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      color: white;
+
+      font-weight: bold;
+
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="#">TravelEase</a>
+
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item"><a class="nav-link" th:href="@{/hotels/hotel-list}">Hotels</a></li>
+
+          <li class="nav-item"><a class="nav-link" th:href="@{/trips/trip-list}">Trips</a></li>
+          
+          <li class="nav-item"><a class="nav-link" th:href="@{/bookings/mybooking}">My Bookings</a></li>
+
+        </ul>
+
+
+
+        <!-- Search & Logout Buttons -->
+
+        <a th:href="@{/trips/search}" class="btn btn-success ml-3">Search Trips</a>
+
+        <a th:href="@{/logout}" class="btn btn-danger ml-3">Logout</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- Hero Section -->
+
+  <header class="hero animate__animated animate__fadeIn">
+
+    <div>
+
+      <h1 class="display-4">Explore the World with TravelEase</h1>
+
+      <p class="lead">Find your perfect trip & book the best hotels.</p>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- Features Section -->
+
+  <section class="container mt-5">
+
+    <div class="row text-center">
+
+      <div class="col-md-4 animate__animated animate__fadeInLeft">
+
+        <div class="card p-4 d-flex flex-column justify-content-center">
+
+          <h3>Find Hotels</h3>
+
+          <p>Browse and book the best hotels for your stay.</p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4 animate__animated animate__fadeInUp">
+
+        <div class="card p-4 d-flex flex-column justify-content-center">
+
+          <h3>Plan Trips</h3>
+
+          <p>Choose destinations and book complete travel packages.</p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4 animate__animated animate__fadeInRight">
+
+        <div class="card p-4 d-flex flex-column justify-content-center">
+
+          <h3>Our Motto</h3>
+
+          <p>Let's explore the world together!</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Footer -->
+
+  <footer class="footer text-white text-center py-3 mt-5">
+
+    <p>&copy; 2025 TravelEase. All Rights Reserved.</p>
+
+  </footer>
+
+
+
+  <!-- Bootstrap JavaScript -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+
+
+</html>
