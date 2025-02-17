@@ -27,11 +27,7 @@ public class TripController {
     private TripService tripService;
     
     
-    public TripController(TripService tripService) {
 
-        this.tripService = tripService;
-
-      }
 
 
 
@@ -51,7 +47,7 @@ public class TripController {
 
       }
  
-    // Show All Trips
+
     @GetMapping("/trip-list")
     public String getAllTrips(Model model) {
         List<Trip> trips = tripService.getAllTrips();
@@ -59,7 +55,7 @@ public class TripController {
         return "trip-list";
     }
  
-    // Show Trip Details
+
     @GetMapping("/trip-details/{id}")
     public String getTripById(@PathVariable Long id, Model model) {
         Trip trip = tripService.getTripById(id);
@@ -70,26 +66,25 @@ public class TripController {
         return "trip-details";
     }
  
-    // Show Trip Creation Form
+   
     @GetMapping("/admin/create")
     public String showTripForm(Model model ) {
     	
     	List<Hotel> hotels=hotelService.getAllHotels();
-    	System.out.println("Hotels found :" + hotels.size());
     	model.addAttribute("hotels",hotels);
         model.addAttribute("trip", new TripDTO());
         return "trip-form";
     }
  
-    // Handle New Trip Submission
+   
     @PostMapping("/admin/create")
     
-    public String createTrip(@ModelAttribute TripDTO tripDTO,Model model) {
+    public String createTrip(@ModelAttribute TripDTO tripDTO) {
     	
         tripService.saveTrip(tripDTO);
        
  
-//     model.getAttribute("hotels")
+
         return "redirect:/trips/trip-list";
     }
 }

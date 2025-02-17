@@ -41,18 +41,6 @@ public class TripService {
         return tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Trip not found"));
     }
  
-    // Adjust price based on demand (if rooms available fall below threshold, increase price)
-//    public Trip adjustPriceBasedOnDemand(Long tripId, Long bookingCountThreshold, double priceIncreaseRate) {
-//        Trip trip = getTripById(tripId);       // Fetch the trip by ID
-//        long totalRoomsAvailable = getTotalAvailableRooms(tripId); // Calculate available rooms for the trip
-// 
-//        
-//        if (totalRoomsAvailable < bookingCountThreshold) {
-//            trip.setPrice(trip.getPrice() * (1 + priceIncreaseRate));  // Increase price by the rate
-//            return tripRepository.save(trip);  // Save the updated trip
-//        }
-//        return trip;  
-//    }
  
   
     public Trip saveTrip(TripDTO tripDTO) {
@@ -67,9 +55,7 @@ public class TripService {
         return tripRepository.save(trip);
     }
  
-    public void deleteTrip(Long id) {
-        tripRepository.deleteById(id);
-    }
+
  
     
     public long getTotalAvailableRooms(Long tripId) {
@@ -79,6 +65,7 @@ public class TripService {
         return trip.getHotels().stream()
                 .mapToLong(hotel -> hotelService.getRoomsAvailable(hotel.getTotalRooms(), hotel.getBookedRooms()))
                 .sum();
+        
     }
  
    

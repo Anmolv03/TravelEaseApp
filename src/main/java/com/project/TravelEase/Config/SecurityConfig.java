@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 	@Autowired
-	private CustomAuthenticationSucessHandler successHandler;
+	private CustomAuthenticationSuccessHandler successHandler;
      
 	@Bean
 	public UserDetailsService userDetailsService() {
@@ -33,10 +33,10 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 		http.csrf(customizer->customizer.disable())
 		    .authorizeHttpRequests(auth->auth
-		    		.requestMatchers( "/users/register", "/users/login", "/users/contact-us").permitAll()
+		    		.requestMatchers( "/users/register", "/users/login").permitAll()
 		    		.requestMatchers("/**admin/**","/users/adminDashboard").hasRole("ADMIN")
 		    		.anyRequest().authenticated()
-		    
+		             
 		    	)
 		    .formLogin(login->login
 		    		.loginPage("/users/login")

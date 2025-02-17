@@ -184,7 +184,6 @@
 
 
 
-  <!-- Search Form -->
 
   <form th:action="@{/trips/search}" method="get" class="mb-4">
 
@@ -216,7 +215,7 @@
 
       <th>End Date</th>
 
-      <th>Price ($)</th>
+      <th>Price (Rs)</th>
 
       <th>Actions</th>
 
@@ -238,7 +237,7 @@
 
       <td>
 
-       <a th:href="@{/trip-details(id=${trip.id})}" class="btn btn-success">View Details</a>
+       <a th:href="@{/trips/trip-details/{id}(id=${trip.id})}" class="btn btn-success">View Details</a>
 
       </td>
 

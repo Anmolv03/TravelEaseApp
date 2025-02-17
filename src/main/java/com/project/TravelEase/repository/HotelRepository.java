@@ -11,13 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
 	
-	@Query("SELECT h from Hotel h where h.address like %:city%")
-	List<Hotel> findByCity(String city);
+
 	
-	@Query("SELECT h from Hotel h where h.pricePerNight Between :minPrice AND :maxPrice")
-	List<Hotel> findByPriceRange(Double minPrice,Double maxPrice);
 	
-	@Query("Select h from Hotel h where h.roomsAvailable>0")
-	List<Hotel> findAvailableHotels();
-	
+
 }
